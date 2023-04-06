@@ -96,6 +96,8 @@
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 md:w-1/2">
+
+            
             <h1
               class="text-sm font-semibold text-primary md:text-sm lg:text-xl">
               Welcome to our Company Profile Website
@@ -124,13 +126,33 @@
               </a>
             </div>
           </div>
-          <div class="w-full self-end px-4 md:w-1/2">
-            <div class="relative mt-10 lg:mt-9 lg:right-0">
-              <img
+          <div class="w-full self-end px-4 md:w-1/2 mb-10">
+            <div class="container">
+              <div class="relative mt-3 md:-mt-[280px] lg:-mt-[450px]">
+                <div class="carousel">
+                  <div class="carousel-item absolute opacity-0" id="slide-1">
+                    <img src="./dist/img/carousel/hero/1.png" alt="Slide 1" />
+                  </div>
+                  <div class="carousel-item absolute opacity-0" id="slide-2">
+                    <img src="./dist/img/carousel/hero/2.png" alt="Slide 2" />
+                  </div>
+                  <div
+                    class="carousel-item absolute opacity-0 lg:w-[450px] lg:mt-[80px]"
+                    id="slide-3">
+                    <img src="./dist/img/carousel/hero/3.png" alt="Slide 3" />
+                  </div>
+                </div>
+                <div class="carousel-navigation absolute w-full">
+                  <label for="slide-1" class="carousel-navigation-item"></label>
+                  <label for="slide-2" class="carousel-navigation-item"></label>
+                  <label for="slide-3" class="carousel-navigation-item"></label>
+                </div>
+              </div>
+            </div>
+            <!-- <img
                 src="dist/img/logoNGS.png"
                 alt="PT.Nepatech"
-                class="max-w-full w-[250px] md:w-[400px] lg:w-[500px] mx-auto" />
-            </div>
+                class="max-w-full w-[250px] md:w-[400px] lg:w-[500px] mx-auto" /> -->
           </div>
         </div>
       </div>
@@ -138,7 +160,7 @@
     <!-- Hero Section End -->
 
     <!-- About Section Start -->
-    <section id="about" class="pt-36 pb-32">
+    <section id="about" class="pt-52 md:pt-16 pb-32">
       <div class="container">
         <div class="flex flex-wrap lg:ml-14">
           <div class="w-full px-4 mb-10 lg:w-1/2">
@@ -182,7 +204,7 @@
             </h3>
             <div class="w-full px-2 py-2 flex flex-wrap">
               <ul
-                class="font-medium text-base text-secondary max-w-xl w-1/2 md:w-full lg:text-lg">
+                class="font-medium text-base text-secondary max-w-xl md:w-1/2 md:w-full lg:text-lg">
                 <li class="hover:text-primary cursor-pointer">
                   - Peralatan Dan Pengambilan Dan Preparasi BatuBara
                 </li>
@@ -192,9 +214,6 @@
                 <li class="hover:text-primary cursor-pointer">
                   - SparePart Peralatan Labolatorium BatuBara
                 </li>
-              </ul>
-              <ul
-                class="font-medium text-base text-secondary max-w-xl w-1/2 md:w-full lg:text-lg">
                 <li class="hover:text-primary cursor-pointer">
                   - Consumable Peralatan Labolatorium BatuBara
                 </li>
