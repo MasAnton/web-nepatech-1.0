@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["index.html", "./galeri_pages"],
+  content: ["index.html", "./galeri_pages/**"],
   theme: {
     container: {
       center: true,
