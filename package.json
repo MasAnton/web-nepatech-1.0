@@ -19,5 +19,8 @@
     "url": "https://github.com/sandhikagalih/portfolio-tailwind-css/issues"
   },
   "homepage": "https://github.com/sandhikagalih/portfolio-tailwind-css#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@emailjs/browser": "^3.11.0"
+  }
 }

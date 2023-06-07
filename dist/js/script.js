@@ -19,6 +19,30 @@ hamburger.addEventListener("click", function () {
   navMenu.classList.toggle("hidden");
 });
 
+//emailJs
+let sendButton = document.getElementById("sendButton");
+let loadingIcon = document.getElementById("loadingIcon");
+let sendButtonDone = document.getElementById("sendButtonDone");
+
+function sendMail() {
+  sendButton.style.display = "none";
+  loadingIcon.style.display = "block";
+
+  let params = {
+    from_name: document.getElementById("name").value,
+    email_id: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
+  emailjs
+    .send("service_bzfics8", "template_ystb56g", params)
+    .then(function (res) {
+      loadingIcon.style.display = "none";
+      sendButtonDone.style.display = "block";
+      alert("Email Dikirim");
+    });
+}
+// email_JsEnd
+
 const carouselItems = document.querySelectorAll(".carousel-item");
 const carouselNavItems = document.querySelectorAll(".carousel-navigation-item");
 
