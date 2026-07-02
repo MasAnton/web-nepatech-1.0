@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #0f172a;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(240, 131, 0, 0.12), transparent 30%), radial-gradient(circle at bottom right, rgba(35, 25, 22, 0.08), transparent 25%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.section-card {
+  @apply rounded-[32px] border border-slate-200 bg-white/85 p-8 shadow-[0_30px_60px_-30px_rgba(15,23,42,0.35)] backdrop-blur text-slate-900;
+}
+
+.dark .section-card {
+  @apply border-slate-700 bg-slate-900/80 text-slate-100;
+}
+
+.hamburger-line {
+  @apply my-1 block h-[3px] w-[26px] rounded-full bg-slate-900 transition-transform duration-300 ease-in-out;
+}
+
+.hamburger-active > span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger-active > span:nth-child(2) {
+  @apply opacity-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at top left, rgba(240, 131, 0, 0.16), transparent 26%), radial-gradient(circle at bottom right, rgba(35, 25, 22, 0.1), transparent 18%);
+}
+
+.card-group > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+/* Hide images until JS mounts to avoid large image flash on first paint */
+html:not(.js-mounted) img {
+  visibility: hidden;
+}
