@@ -1,36 +1,40 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const galleryLinks = [
-  { slug: 'furnace', name: 'Suhu', title: 'Furnace' },
-  { slug: 'kalorimeter', name: 'Instrument', title: 'Kalorimeter' },
-  { slug: 'laboratory-mill', name: 'Laboratory Mill', title: 'Laboratory Mill' },
-  { slug: 'timbangan', name: 'Massa', title: 'Timbangan' },
+  { slug: "furnace", name: "Suhu", title: "Furnace" },
+  { slug: "kalorimeter", name: "Instrument", title: "Kalorimeter" },
+  {
+    slug: "laboratory-mill",
+    name: "Laboratory Mill",
+    title: "Laboratory Mill",
+  },
+  { slug: "timbangan", name: "Massa", title: "Timbangan" },
 ];
 
 const clientLogos = [
-  { src: '/img/PNG/atq.png', alt: 'ATQ' },
-  { src: '/img/PNG/Aetra.png', alt: 'Aetra' },
-  { src: '/img/PNG/Antam.png', alt: 'Antam' },
-  { src: '/img/PNG/BP.png', alt: 'BP' },
-  { src: '/img/PNG/BSA.png', alt: 'BSA' },
-  { src: '/img/PNG/CGR.png', alt: 'CGR' },
-  { src: '/img/PNG/Geomin.png', alt: 'Geomin' },
-  { src: '/img/PNG/Geoservices.png', alt: 'Geoservices' },
-  { src: '/img/PNG/IBIS.png', alt: 'IBIS' },
-  { src: '/img/PNG/IP.png', alt: 'IP' },
-  { src: '/img/PNG/Krakatau.png', alt: 'Krakatau' },
-  { src: '/img/PNG/LBE.png', alt: 'LBE' },
-  { src: '/img/PNG/MA.png', alt: 'MA' },
-  { src: '/img/PNG/MSK.png', alt: 'MSK' },
-  { src: '/img/PNG/Nusantara Power.png', alt: 'Nusantara Power' },
-  { src: '/img/PNG/PJB.png', alt: 'PJB' },
-  { src: '/img/PNG/PLN.png', alt: 'PLN' },
-  { src: '/img/PNG/SCCI.png', alt: 'SCCI' },
-  { src: '/img/PNG/Sucofindo.png', alt: 'Sucofindo' },
-  { src: '/img/PNG/Surveyor Indonesia.png', alt: 'Surveyor Indonesia' },
-  { src: '/img/PNG/Tek-MIRA.png', alt: 'Tek-MIRA' },
-  { src: '/img/PNG/TOP.png', alt: 'TOP' },
+  { src: "/img/PNG/atq.png", alt: "ATQ" },
+  { src: "/img/PNG/Aetra.png", alt: "Aetra" },
+  { src: "/img/PNG/Antam.png", alt: "Antam" },
+  { src: "/img/PNG/BP.png", alt: "BP" },
+  { src: "/img/PNG/BSA.png", alt: "BSA" },
+  { src: "/img/PNG/CGR.png", alt: "CGR" },
+  { src: "/img/PNG/Geomin.png", alt: "Geomin" },
+  { src: "/img/PNG/Geoservices.png", alt: "Geoservices" },
+  { src: "/img/PNG/IBIS.png", alt: "IBIS" },
+  { src: "/img/PNG/IP.png", alt: "IP" },
+  { src: "/img/PNG/Krakatau.png", alt: "Krakatau" },
+  { src: "/img/PNG/LBE.png", alt: "LBE" },
+  { src: "/img/PNG/MA.png", alt: "MA" },
+  { src: "/img/PNG/MSK.png", alt: "MSK" },
+  { src: "/img/PNG/Nusantara Power.png", alt: "Nusantara Power" },
+  { src: "/img/PNG/PJB.png", alt: "PJB" },
+  { src: "/img/PNG/PLN.png", alt: "PLN" },
+  { src: "/img/PNG/SCCI.png", alt: "SCCI" },
+  { src: "/img/PNG/Sucofindo.png", alt: "Sucofindo" },
+  { src: "/img/PNG/Surveyor Indonesia.png", alt: "Surveyor Indonesia" },
+  { src: "/img/PNG/Tek-MIRA.png", alt: "Tek-MIRA" },
+  { src: "/img/PNG/TOP.png", alt: "TOP" },
 ];
 
 const galleryImages = Array.from({ length: 11 }, (_, index) => ({
@@ -39,10 +43,26 @@ const galleryImages = Array.from({ length: 11 }, (_, index) => ({
 }));
 
 const heroSlides = [
-  { src: '/img/carousel/hero/1.png', alt: 'Slide 1', label: 'Maintenance & Calibration' },
-  { src: '/img/carousel/hero/2.png', alt: 'Slide 2', label: 'Laboratory Reliability' },
-  { src: '/img/carousel/hero/3.png', alt: 'Slide 3', label: 'Advanced Equipment' },
-  { src: '/img/carousel/hero/4.png', alt: 'Slide 4', label: 'Field Performance' },
+  {
+    src: "/img/carousel/hero/1.png",
+    alt: "Slide 1",
+    label: "Maintenance & Calibration",
+  },
+  {
+    src: "/img/carousel/hero/2.png",
+    alt: "Slide 2",
+    label: "Laboratory Reliability",
+  },
+  {
+    src: "/img/carousel/hero/3.png",
+    alt: "Slide 3",
+    label: "Advanced Equipment",
+  },
+  {
+    src: "/img/carousel/hero/4.png",
+    alt: "Slide 4",
+    label: "Field Performance",
+  },
 ];
 
 function Home() {
@@ -64,17 +84,25 @@ function Home() {
 
   useEffect(() => {
     // add a class to the html element so CSS can reveal images after JS mounts
-    document.documentElement.classList.add('js-mounted');
-    return () => document.documentElement.classList.remove('js-mounted');
+    document.documentElement.classList.add("js-mounted");
+    return () => document.documentElement.classList.remove("js-mounted");
   }, []);
 
   const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
   return (
-    <div className={`${darkMode ? 'dark bg-slate-950 text-slate-100' : 'bg-white text-slate-900'} min-h-screen transition-colors duration-500`}>
+    <div
+      className={`${darkMode ? "dark bg-slate-950 text-slate-100" : "bg-white text-slate-900"} min-h-screen transition-colors duration-500`}>
       <div className="fixed bottom-5 right-5 z-20">
-        <a href="https://api.whatsapp.com/send?phone=6281267084525" target="_blank" rel="noreferrer">
-          <img src="/img/logoWA.png" className="w-[50px] transition duration-500 hover:w-[55px] md:w-[70px] hover:md:w-[75px] lg:w-[80px] hover:lg:w-[85px]" alt="WhatsApp" />
+        <a
+          href="https://api.whatsapp.com/send?phone=6281267084525"
+          target="_blank"
+          rel="noreferrer">
+          <img
+            src="/img/logoWA.png"
+            className="w-[50px] transition duration-500 hover:w-[55px] md:w-[70px] hover:md:w-[75px] lg:w-[80px] hover:lg:w-[85px]"
+            alt="WhatsApp"
+          />
         </a>
       </div>
 
@@ -83,7 +111,11 @@ function Home() {
           <div className="relative flex flex-wrap items-center justify-between gap-4 px-4 py-4 lg:py-0">
             <div>
               <a href="#home" className="block text-lg font-bold text-primary">
-                <img src="/img/logoNGS.png" className="w-[120px] py-2" alt="PT. Nepatech Global Solusindo" />
+                <img
+                  src="/img/logoNGS.png"
+                  className="w-[120px] py-2"
+                  alt="PT. Nepatech Global Solusindo"
+                />
               </a>
             </div>
 
@@ -92,33 +124,39 @@ function Home() {
                 type="button"
                 onClick={toggleDarkMode}
                 className="inline-flex items-center rounded-full border border-slate-300 bg-white/90 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-100 dark:hover:bg-slate-800"
-                aria-label="Toggle dark mode"
-              >
-                {darkMode ? 'Light Mode' : 'Dark Mode'}
+                aria-label="Toggle dark mode">
+                {darkMode ? "Light Mode" : "Dark Mode"}
               </button>
               <button
                 type="button"
                 className="inline-flex items-center rounded-lg border border-slate-300 bg-white/90 p-2 text-slate-900 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900/90 dark:text-slate-100 dark:hover:bg-slate-800 lg:hidden"
                 onClick={() => setMenuOpen((prev) => !prev)}
-                aria-label="Toggle navigation menu"
-              >
+                aria-label="Toggle navigation menu">
                 <span className="sr-only">Open main menu</span>
-                <div className={`hamburger-line ${menuOpen ? 'rotate-45 translate-y-1' : ''}`} />
-                <div className={`hamburger-line ${menuOpen ? 'opacity-0' : ''}`} />
-                <div className={`hamburger-line ${menuOpen ? '-rotate-45 -translate-y-1' : ''}`} />
+                <div
+                  className={`hamburger-line ${menuOpen ? "rotate-45 translate-y-1" : ""}`}
+                />
+                <div
+                  className={`hamburger-line ${menuOpen ? "opacity-0" : ""}`}
+                />
+                <div
+                  className={`hamburger-line ${menuOpen ? "-rotate-45 -translate-y-1" : ""}`}
+                />
               </button>
             </div>
 
             <nav className="hidden lg:block lg:order-2">
               <ul className="flex">
                 {[
-                  ['Beranda', '#home'],
-                  ['Tentang Kami', '#about'],
-                  ['Galeri Kerja', '#portfolio'],
-                  ['Pelanggan', '#clients'],
+                  ["Beranda", "#home"],
+                  ["Tentang Kami", "#about"],
+                  ["Galeri Kerja", "#portfolio"],
+                  ["Pelanggan", "#clients"],
                 ].map(([label, href]) => (
                   <li key={label} className="group">
-                    <a href={href} className="mx-5 flex py-2 text-base text-slate-900 transition group-hover:border-b-4 group-hover:border-b-primary dark:text-slate-100">
+                    <a
+                      href={href}
+                      className="mx-5 flex py-2 text-base text-slate-900 transition group-hover:border-b-4 group-hover:border-b-primary dark:text-slate-100">
                       {label}
                     </a>
                   </li>
@@ -131,17 +169,16 @@ function Home() {
             <div className="rounded-b-xl border border-slate-200 border-t-0 bg-white/95 p-4 shadow-lg backdrop-blur-lg lg:hidden">
               <ul className="space-y-3">
                 {[
-                  ['Beranda', '#home'],
-                  ['Tentang Kami', '#about'],
-                  ['Galeri Kerja', '#portfolio'],
-                  ['Pelanggan', '#clients'],
+                  ["Beranda", "#home"],
+                  ["Tentang Kami", "#about"],
+                  ["Galeri Kerja", "#portfolio"],
+                  ["Pelanggan", "#clients"],
                 ].map(([label, href]) => (
                   <li key={label}>
                     <a
                       href={href}
                       className="block rounded-xl px-4 py-3 text-base font-medium text-slate-900 transition hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800"
-                      onClick={() => setMenuOpen(false)}
-                    >
+                      onClick={() => setMenuOpen(false)}>
                       {label}
                     </a>
                   </li>
@@ -163,15 +200,25 @@ function Home() {
                     <span className="mr-2 inline-flex h-2 w-2 rounded-full bg-primary" />
                     PT. Nepatech Global Solusindo
                   </div>
-                  <h1 className="text-4xl font-black text-slate-900 sm:text-5xl lg:text-6xl dark:text-slate-100">Build better lab services for modern operations</h1>
+                  <h1 className="text-4xl font-black text-slate-900 sm:text-5xl lg:text-6xl dark:text-slate-100">
+                    Build better lab services for modern operations
+                  </h1>
                   <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl dark:text-slate-300">
-                    Maintenance, kalibrasi, dan suplay laboratorium untuk batu bara dan industri analitik. Kami hadir dengan kemampuan teknis yang terakreditasi dan solusi yang siap pakai.
+                    Maintenance, kalibrasi, dan suplay laboratorium untuk batu
+                    bara dan industri analitik. Kami hadir dengan kemampuan
+                    teknis yang terakreditasi dan solusi yang siap pakai.
                   </p>
                   <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                    <a href="https://drive.google.com/file/d/1yJblUHYLyUX6QVpOTUR0HneuXz67QENs/view?usp=share_link" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-orange-500">
+                    <a
+                      href="https://drive.google.com/file/d/1yJblUHYLyUX6QVpOTUR0HneuXz67QENs/view?usp=share_link"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center rounded-full bg-primary px-8 py-4 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-orange-500">
                       Download Profile
                     </a>
-                    <a href="#portfolio" className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-4 text-base font-semibold text-slate-900 transition duration-300 ease-in-out hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:text-orange-300">
+                    <a
+                      href="#portfolio"
+                      className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-4 text-base font-semibold text-slate-900 transition duration-300 ease-in-out hover:border-primary hover:text-primary dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:text-orange-300">
                       Lihat Galeri
                     </a>
                   </div>
@@ -180,27 +227,56 @@ function Home() {
               <div className="w-full px-4">
                 <div className="relative overflow-hidden rounded-[28px] border border-slate-200 bg-slate-100 shadow-xl shadow-slate-900/5 dark:border-slate-700 dark:bg-slate-900">
                   {isMounted ? (
-                    <img loading="lazy" src={heroSlides[activeSlide].src} alt={heroSlides[activeSlide].alt} className="h-[520px] w-full object-cover transition duration-700 ease-in-out" />
+                    <img
+                      loading="lazy"
+                      src={heroSlides[activeSlide].src}
+                      alt={heroSlides[activeSlide].alt}
+                      className="h-[520px] w-full object-cover transition duration-700 ease-in-out"
+                    />
                   ) : (
                     <div className="h-[520px] w-full bg-slate-100 dark:bg-slate-900" />
                   )}
                   <div className="absolute inset-x-0 bottom-6 px-4">
                     <div className="mx-auto flex max-w-xl flex-wrap items-center justify-between gap-3 rounded-full bg-slate-950/70 px-4 py-3 text-white backdrop-blur sm:px-6">
                       <div>
-                       <p className="text-base font-semibold">{heroSlides[activeSlide].label}</p>
+                        <p className="text-base font-semibold">
+                          {heroSlides[activeSlide].label}
+                        </p>
                       </div>
                       <div className="flex items-center gap-3">
-                        <button type="button" onClick={() => setActiveSlide((current) => (current - 1 + heroSlides.length) % heroSlides.length)} className="rounded-full bg-white/10 px-3 py-2 text-lg transition hover:bg-white/20">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveSlide(
+                              (current) =>
+                                (current - 1 + heroSlides.length) %
+                                heroSlides.length,
+                            )
+                          }
+                          className="rounded-full bg-white/10 px-3 py-2 text-lg transition hover:bg-white/20">
                           ‹
                         </button>
-                        <button type="button" onClick={() => setActiveSlide((current) => (current + 1) % heroSlides.length)} className="rounded-full bg-white/10 px-3 py-2 text-lg transition hover:bg-white/20">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveSlide(
+                              (current) => (current + 1) % heroSlides.length,
+                            )
+                          }
+                          className="rounded-full bg-white/10 px-3 py-2 text-lg transition hover:bg-white/20">
                           ›
                         </button>
                       </div>
                     </div>
                     <div className="mt-4 flex justify-center gap-2">
                       {heroSlides.map((_, index) => (
-                        <button key={index} type="button" onClick={() => setActiveSlide(index)} className={`h-2.5 w-10 rounded-full transition ${activeSlide === index ? 'bg-primary' : 'bg-white/30 hover:bg-white/50'}`} aria-label={`Slide ${index + 1}`} />
+                        <button
+                          key={index}
+                          type="button"
+                          onClick={() => setActiveSlide(index)}
+                          className={`h-2.5 w-10 rounded-full transition ${activeSlide === index ? "bg-primary" : "bg-white/30 hover:bg-white/50"}`}
+                          aria-label={`Slide ${index + 1}`}
+                        />
                       ))}
                     </div>
                   </div>
@@ -218,16 +294,30 @@ function Home() {
                   Solusi Kalibrasi & Maintenance
                 </span>
                 <h2 className="mt-4 text-3xl font-bold text-slate-900 dark:text-slate-100 sm:text-4xl lg:text-5xl">
-                  Layanan teknis laboratorium yang cepat, akurat, dan bisa diandalkan.
+                  Layanan teknis laboratorium yang cepat, akurat, dan bisa
+                  diandalkan.
                 </h2>
                 <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg">
-                  Kami menyediakan jasa kalibrasi, maintenance, dan supply untuk alat laboratorium batu bara, dari pemeriksaan hingga perawatan rutin.
+                  Kami menyediakan jasa kalibrasi, maintenance, dan supply untuk
+                  alat laboratorium batu bara, dari pemeriksaan hingga perawatan
+                  rutin.
                 </p>
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {['Kalibrasi', 'Maintenance', 'Laboratorium', 'Suku Cadang'].map((item) => (
-                    <div key={item} className="rounded-3xl border border-slate-200 bg-slate-50 px-5 py-6 shadow-sm dark:border-slate-700 dark:bg-slate-950">
-                      <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">{item}</h3>
-                      <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Solusi profesional untuk kebutuhan operasional Anda.</p>
+                  {[
+                    "Kalibrasi",
+                    "Maintenance",
+                    "Laboratorium",
+                    "Suku Cadang",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-3xl border border-slate-200 bg-slate-50 px-5 py-6 shadow-sm dark:border-slate-700 dark:bg-slate-950">
+                      <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                        {item}
+                      </h3>
+                      <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                        Solusi profesional untuk kebutuhan operasional Anda.
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -235,14 +325,22 @@ function Home() {
               <div className="flex items-center justify-center">
                 <div className="rounded-[32px] border border-slate-200 bg-slate-950/5 p-6 shadow-lg">
                   <div className="mb-6 rounded-3xl bg-white p-6 shadow-sm dark:bg-slate-900">
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">Tentang Kami</h3>
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
+                      Tentang Kami
+                    </h3>
                     <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
-                      Perusahaan kami berfokus pada layanan kalibrasi serta supply peralatan laboratorium yang sesuai standar ISO dan kebutuhan industri.
+                      Perusahaan kami berfokus pada layanan kalibrasi serta
+                      supply peralatan laboratorium yang sesuai standar ISO dan
+                      kebutuhan industri.
                     </p>
                   </div>
                   <div className="rounded-3xl bg-gradient-to-r from-primary to-orange-400 px-6 py-5 text-white shadow-xl">
-                    <p className="text-sm uppercase tracking-[0.2em]">100+ Klien</p>
-                    <p className="mt-3 text-3xl font-bold">Trusted by industry leaders</p>
+                    <p className="text-sm uppercase tracking-[0.2em]">
+                      100+ Klien
+                    </p>
+                    <p className="mt-3 text-3xl font-bold">
+                      Trusted by industry leaders
+                    </p>
                   </div>
                 </div>
               </div>
@@ -256,41 +354,57 @@ function Home() {
               <span className="inline-flex rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-orange-600">
                 Galeri Kerja
               </span>
-              <h2 className="mt-5 text-4xl font-bold text-slate-900 dark:text-slate-100 sm:text-5xl lg:text-6xl">Tampilkan dokumentasi terbaik dari setiap proyek kami.</h2>
+              <h2 className="mt-5 text-4xl font-bold text-slate-900 dark:text-slate-100 sm:text-5xl lg:text-6xl">
+                Tampilkan dokumentasi terbaik dari setiap proyek kami.
+              </h2>
               <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 dark:text-slate-300 sm:text-lg">
-                Jelajahi foto-foto terbaru dari kalibrasi, maintenance, dan pemasangan peralatan laboratorium di lapangan.
+                Jelajahi foto-foto terbaru dari kalibrasi, maintenance, dan
+                pemasangan peralatan laboratorium di lapangan.
               </p>
             </div>
             <div className="grid gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
               {galleryLinks.map((item) => (
-                <Link key={item.slug} to={`/gallery/${item.slug}`} className="group overflow-hidden rounded-[28px] border border-slate-200 bg-white p-8 text-left transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-950">
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">{item.name}</p>
-                  <h3 className="mt-4 text-2xl font-bold text-slate-900 dark:text-slate-100">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">Lihat galeri dokumentasi lengkap untuk kategori alat ini.</p>
+                <Link
+                  key={item.slug}
+                  to={`/gallery/${item.slug}`}
+                  className="group overflow-hidden rounded-[28px] border border-slate-200 bg-white p-8 text-left transition hover:-translate-y-1 hover:shadow-xl dark:border-slate-700 dark:bg-slate-950">
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+                    {item.name}
+                  </p>
+                  <h3 className="mt-4 text-2xl font-bold text-slate-900 dark:text-slate-100">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">
+                    Lihat galeri dokumentasi lengkap untuk kategori alat ini.
+                  </p>
                 </Link>
-              ))}
-            </div>
-
-            <div className="mt-12 grid gap-6 px-4 sm:grid-cols-2 lg:grid-cols-3">
-              {galleryImages.slice(0, 6).map((image) => (
-                <div key={image.src} className="overflow-hidden rounded-[28px] bg-slate-950 shadow-lg shadow-slate-900/5 transition hover:-translate-y-1">
-                  <img loading="lazy" className="h-64 w-full object-cover transition duration-300 group-hover:scale-105" src={image.src} alt={image.alt} />
-                </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="clients" className="bg-slate-200 pb-32 pt-36 dark:bg-slate-800">
+        <section
+          id="clients"
+          className="bg-slate-200 pb-32 pt-36"
+          style={{ backgroundColor: "rgb(241,245,249)", color: "rgb(15,23,42)" }}>
           <div className="container">
             <div className="mb-16 w-full px-4 text-center">
-              <h4 className="mb-2 text-lg font-semibold text-primary">Perusahaan</h4>
-              <h2 className="text-3xl font-bold text-secondary dark:text-slate-100 sm:text-4xl lg:text-5xl">Yang Pernah Bekerjasama</h2>
+              <h4 className="mb-2 text-lg font-semibold text-primary">
+                Perusahaan
+              </h4>
+              <h2
+                className="text-3xl font-bold text-secondary sm:text-4xl lg:text-5xl"
+                style={{ color: "rgb(35,25,22)" }}>
+                Yang Pernah Bekerjasama
+              </h2>
             </div>
             <div className="w-full px-4">
               <div className="flex flex-wrap items-center justify-center">
                 {clientLogos.map((logo) => (
-                  <a key={logo.alt} href="#" className="mx-4 max-w-[60px] py-4 md:max-w-[100px] lg:mx-6 lg:max-w-[120px] xl:mx-8">
+                  <a
+                    key={logo.alt}
+                    href="#"
+                    className="mx-4 max-w-[60px] py-4 md:max-w-[100px] lg:mx-6 lg:max-w-[120px] xl:mx-8">
                     <img loading="lazy" src={logo.src} alt={logo.alt} />
                   </a>
                 ))}
@@ -304,18 +418,28 @@ function Home() {
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="rounded-[32px] border border-slate-800 bg-slate-900/80 p-8 shadow-lg shadow-slate-900/20">
-              <h3 className="mb-4 text-3xl font-bold text-white">Hubungi Kami</h3>
+              <h3 className="mb-4 text-3xl font-bold text-white">
+                Hubungi Kami
+              </h3>
               <p className="text-base text-slate-400">nepatech1gs@gmail.com</p>
               <p className="mt-4 text-sm leading-7 text-slate-400">
-                Hous, Ruko Garden, Jl. Grand Wisata No.75 Blok BG 1, Lambangjaya, Kec. Tambun Sel., Kabupaten Bekasi, Jawa Barat 17510
+                Hous, Ruko Garden, Jl. Grand Wisata No.75 Blok BG 1,
+                Lambangjaya, Kec. Tambun Sel., Kabupaten Bekasi, Jawa Barat
+                17510
               </p>
             </div>
             <div className="rounded-[32px] border border-slate-800 bg-slate-900/80 p-8 shadow-lg shadow-slate-900/20">
-              <h3 className="mb-5 text-xl font-semibold text-white">Galeri Kerja</h3>
+              <h3 className="mb-5 text-xl font-semibold text-white">
+                Galeri Kerja
+              </h3>
               <ul className="space-y-3 text-slate-300">
                 {galleryLinks.map((item) => (
                   <li key={item.slug}>
-                    <Link to={`/gallery/${item.slug}`} className="inline-block text-base transition hover:text-orange-400">{item.name}</Link>
+                    <Link
+                      to={`/gallery/${item.slug}`}
+                      className="inline-block text-base transition hover:text-orange-400">
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -323,10 +447,34 @@ function Home() {
             <div className="rounded-[32px] border border-slate-800 bg-slate-900/80 p-8 shadow-lg shadow-slate-900/20">
               <h3 className="mb-5 text-xl font-semibold text-white">Tautan</h3>
               <ul className="space-y-3 text-slate-300">
-                <li><a href="#home" className="inline-block text-base transition hover:text-orange-400">Beranda</a></li>
-                <li><a href="#about" className="inline-block text-base transition hover:text-orange-400">Tentang Kami</a></li>
-                <li><a href="#portfolio" className="inline-block text-base transition hover:text-orange-400">Galeri Kerja</a></li>
-                <li><a href="#clients" className="inline-block text-base transition hover:text-orange-400">Pelanggan</a></li>
+                <li>
+                  <a
+                    href="#home"
+                    className="inline-block text-base transition hover:text-orange-400">
+                    Beranda
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#about"
+                    className="inline-block text-base transition hover:text-orange-400">
+                    Tentang Kami
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#portfolio"
+                    className="inline-block text-base transition hover:text-orange-400">
+                    Galeri Kerja
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#clients"
+                    className="inline-block text-base transition hover:text-orange-400">
+                    Pelanggan
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
